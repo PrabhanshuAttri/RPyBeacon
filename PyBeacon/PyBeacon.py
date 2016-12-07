@@ -61,7 +61,7 @@ parser = argparse.ArgumentParser(prog=application_name, description= __doc__)
 
 parser.add_argument("-u", "--url", nargs='?', const=default_url, type=str,
     default=default_url, help='URL to advertise.')
-parser.add_argument("-i", "--uid", nargs='?', type=str,
+parser.add_argument("-i", "--uid", nargs='+', type=str,
     help='UID to advertise.')
 parser.add_argument('-s','--scan', action='store_true',
                     help='Scan for URLs.')
