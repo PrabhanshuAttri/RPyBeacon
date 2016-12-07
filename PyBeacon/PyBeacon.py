@@ -38,6 +38,9 @@ else:
 # The default url
 default_url = "https://goo.gl/SkcDTN"
 
+# The default uid
+default_uid = "01234567890123456789012345678901"
+
 schemes = [
         "http://www.",
         "https://www.",
@@ -61,8 +64,8 @@ parser = argparse.ArgumentParser(prog=application_name, description= __doc__)
 
 parser.add_argument("-u", "--url", nargs='?', const=default_url, type=str,
     default=default_url, help='URL to advertise.')
-parser.add_argument("-i", "--uid", nargs='+', type=str,
-    help='UID to advertise.')
+parser.add_argument("-i", "--uid", nargs='?', const=default_uid, type=str,
+    default=default_uid, help='UID to advertise.')
 parser.add_argument('-s','--scan', action='store_true',
                     help='Scan for URLs.')
 parser.add_argument('-t','--terminate', action='store_true',
