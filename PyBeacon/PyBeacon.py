@@ -118,6 +118,8 @@ def encode_uid(uid):
     ret = []
     for i in range(0, len(uid), 2):
         ret.append(int(uid[i:i+2], 16))
+    ret.append(0x00)
+    ret.append(0x00)
     return ret
 
 
@@ -230,12 +232,21 @@ def onUrlFound(url):
     """
 
     url = resolveUrl(url)
+    sys.stdout.write("\n/*          Eddystone-URL         */\n")
     sys.stdout.write(url)
     sys.stdout.write("\n")
     sys.stdout.flush()
 
 
 foundPackets = set()
+
+
+def on_uid_found(bytearray):
+    print("\n/*       Eddystone-UID      */")
+    namespace = ("".join(format(x, '02x') for x in bytearray[0:10]))
+    instance = ("".join(format(x, '02x') for x in bytearray[10:16]))
+    print("Namspace: {}\nInstance: {}\n".format(namespace, instance))
+
 
 def onPacketFound(packet):
     """
@@ -256,11 +267,11 @@ def onPacketFound(packet):
         frameType = data[25]
 
         # Eddystone-URL
-        if frameType == Eddystone.url:
-            verboseOutput("Eddystone-URL")
+        if frameType == Eddystone.url.value:
             onUrlFound(decodeUrl(data[27:22 + serviceDataLength]))
-        elif frameType == Eddystone.uid:
-            verboseOutput("Eddystone-UID")
+        elif frameType == Eddystone.uid.value:
+            on_uid_found(data[27:22 + serviceDataLength])
+
         elif frameType == Eddystone.tlm:
             verboseOutput("Eddystone-TLM")
         else:
