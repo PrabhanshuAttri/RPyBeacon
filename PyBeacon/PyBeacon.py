@@ -23,11 +23,12 @@ import subprocess
 import sys
 import time
 import argparse
+from . import __version__
 from pprint import pprint
 from enum import Enum
 
 application_name = 'PyBeacon'
-version = '0.2.5' + 'beta'
+version = __version__ + 'beta'
 
 
 if (sys.version_info > (3, 0)):
@@ -274,8 +275,7 @@ def onPacketFound(packet):
             onUrlFound(decodeUrl(data[27:22 + serviceDataLength]))
         elif frameType == Eddystone.uid.value:
             on_uid_found(data[27:22 + serviceDataLength])
-
-        elif frameType == Eddystone.tlm:
+        elif frameType == Eddystone.tlm.value:
             verboseOutput("Eddystone-TLM")
         else:
             verboseOutput("Unknown Eddystone frame type: {}".format(frameType))
