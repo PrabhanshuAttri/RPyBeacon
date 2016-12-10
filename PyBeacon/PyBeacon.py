@@ -37,10 +37,10 @@ else:
     DEVNULL = open(os.devnull, 'wb')
 
 # The default url
-default_url = "https://goo.gl/SkcDTN"
+defaultUrl = "https://goo.gl/SkcDTN"
 
 # The default uid
-default_uid = "01234567890123456789012345678901"
+defaultUid = "01234567890123456789012345678901"
 
 schemes = [
         "http://www.",
@@ -63,10 +63,10 @@ extensions = [
 
 parser = argparse.ArgumentParser(prog=application_name, description= __doc__)
 
-parser.add_argument("-u", "--url", nargs='?', const=default_url, type=str,
-    default=default_url, help='URL to advertise.')
-parser.add_argument("-i", "--uid", nargs='?', const=default_uid, type=str,
-    default=default_uid, help='UID to advertise.')
+parser.add_argument("-u", "--url", nargs='?', const=defaultUrl, type=str,
+                    default=defaultUrl, help='URL to advertise.')
+parser.add_argument("-i", "--uid", nargs='?', const=defaultUid, type=str,
+                    default=defaultUid, help='UID to advertise.')
 parser.add_argument('-s','--scan', action='store_true',
                     help='Scan for URLs.')
 parser.add_argument('-t','--terminate', action='store_true',
@@ -116,8 +116,8 @@ def encodeurl(url):
     return data
 
 
-def encode_uid(uid):
-    if not uid_is_valid(uid):
+def encodeUid(uid):
+    if not uidIsValid(uid):
         raise ValueError("Invalid uid. Please specify a valid 16-byte (e.g 32 hex digits) hex string")
     ret = []
     for i in range(0, len(uid), 2):
@@ -127,7 +127,7 @@ def encode_uid(uid):
     return ret
 
 
-def uid_is_valid(uid):
+def uidIsValid(uid):
     if len(uid) == 32:
         try:
             int(uid, 16)
@@ -142,7 +142,7 @@ def encodeMessage(data, beacon_type=Eddystone.url):
     if beacon_type == Eddystone.url:
         payload = encodeurl(data)
     elif beacon_type == Eddystone.uid:
-        payload = encode_uid(data)
+        payload = encodeUid(data)
     encodedmessageLength = len(payload)
 
     verboseOutput("Encoded message length: " + str(encodedmessageLength))
@@ -245,7 +245,7 @@ def onUrlFound(url):
 foundPackets = set()
 
 
-def on_uid_found(bytearray):
+def onUidFound(bytearray):
     print("\n/*       Eddystone-UID      */")
     namespace = ("".join(format(x, '02x') for x in bytearray[0:10]))
     instance = ("".join(format(x, '02x') for x in bytearray[10:16]))
@@ -274,7 +274,7 @@ def onPacketFound(packet):
         if frameType == Eddystone.url.value:
             onUrlFound(decodeUrl(data[27:22 + serviceDataLength]))
         elif frameType == Eddystone.uid.value:
-            on_uid_found(data[27:22 + serviceDataLength])
+            onUidFound(data[27:22 + serviceDataLength])
         elif frameType == Eddystone.tlm.value:
             verboseOutput("Eddystone-TLM")
         else:
