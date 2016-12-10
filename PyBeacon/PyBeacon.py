@@ -62,11 +62,12 @@ extensions = [
         ]
 
 parser = argparse.ArgumentParser(prog=application_name, description= __doc__)
+group = parser.add_mutually_exclusive_group()
 
-parser.add_argument("-u", "--url", nargs='?', const=defaultUrl, type=str,
+group.add_argument("-u", "--url", nargs='?', const=defaultUrl, type=str,
                     default=defaultUrl, help='URL to advertise.')
-parser.add_argument("-i", "--uid", nargs='?', const=defaultUid, type=str,
-                    default=defaultUid, help='UID to advertise.')
+group.add_argument("-i", "--uid", nargs='?',  type=str,
+                    const=defaultUid, help='UID to advertise.')
 parser.add_argument('-s','--scan', action='store_true',
                     help='Scan for URLs.')
 parser.add_argument('-t','--terminate', action='store_true',
