@@ -22,3 +22,6 @@ def test_encode():
 		0x07, 
 	]
 	assert PyBeacon.encodeurl(urlToEncode) == data
+
+def test_success():
+	assert 1 == 1
