@@ -15,4 +15,4 @@ before_install:
 # command to install dependencies
 install: "python setup.py install"
 
-script: py.test --doctest-modules --cov .
+script: py.test
