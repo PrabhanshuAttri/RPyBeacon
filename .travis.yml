@@ -11,6 +11,7 @@ python:
 
 before_install:
   - pip install pytest pytest-cov
+  - pip install coverage<4
 # command to install dependencies
 install: "python setup.py install"
 
