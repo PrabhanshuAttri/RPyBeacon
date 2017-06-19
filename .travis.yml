@@ -10,8 +10,8 @@ python:
   - "3.6"
 
 before_install:
-  - pip install pytest pytest-cov
-  - pip install coverage<4
+  - if [[ $TRAVIS_PYTHON_VERSION == '3.2' ]]; then pip install 'coverage<4.0.0'; fi
+  - pip install coveralls pytest pytest-cov
 # command to install dependencies
 install: "python setup.py install"
 
