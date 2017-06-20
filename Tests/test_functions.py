@@ -1,6 +1,6 @@
 from PyBeacon import PyBeacon
 
-def test_encode():
+def testEncodeUrl():
 	urlToEncode = "https://goggles.com"
 	data = [
 		3,  
