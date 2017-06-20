@@ -1,6 +1,7 @@
 from PyBeacon import PyBeacon
+import pytest
 
-def testEncodeUrl():
+def testEncodeUrlSuccess():
 	urlToEncode = "https://goggles.com"
 	data = [
 		3,  
@@ -14,3 +15,20 @@ def testEncodeUrl():
 		0x07, 
 	]
 	assert PyBeacon.encodeurl(urlToEncode) == data
+
+def testEncodeUrlFailure():
+	urlToEncode = "https://goggles.com"
+	data =[
+		1,
+		'g',
+		'a',
+		'r',
+		'b',
+	]
+	assert PyBeacon.encodeurl(urlToEncode) != data
+
+def testEncodeUrlRaisesException():
+	urlToEncode = "test.com"
+	with pytest.raises(Exception) as excinfo:
+		PyBeacon.encodeurl(urlToEncode)
+	assert 'Invalid url scheme' in str(excinfo.value)
