@@ -32,3 +32,18 @@ def testEncodeUrlRaisesException():
 	with pytest.raises(Exception) as excinfo:
 		PyBeacon.encodeurl(urlToEncode)
 	assert 'Invalid url scheme' in str(excinfo.value)
+
+def testDecodeUrlSuccess():
+	url = "https://goggles.com"
+	dataToDecode = [
+		3,  
+		ord('g'),
+		ord('o'),
+		ord('g'),
+		ord('g'),
+		ord('l'),
+		ord('e'),
+		ord('s'),
+		0x07, 
+	]
+	assert PyBeacon.decodeUrl(dataToDecode) == url
