@@ -57,7 +57,6 @@ def testDecodeUrlSuccess():
     ]
     assert decodeUrl(dataToDecode) == url
 
-
 def testEncodeUidSuccess():
     uidToEncode = "EDD1EBEAC04E5DEFA0170BDB87539B67"
     ret = []
