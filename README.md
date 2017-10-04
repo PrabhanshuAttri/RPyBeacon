@@ -1,7 +1,24 @@
 # PyBeacon
+[![Build Status](https://travis-ci.org/nirmankarta/PyBeacon.svg?branch=master)](https://travis-ci.org/nirmankarta/PyBeacon)
+[![Python: 3](https://img.shields.io/badge/python-3-brightgreen.svg)](https://docs.python.org/3/)
+[![Python: 2](https://img.shields.io/badge/python-2-grey.svg)](https://docs.python.org/2/)
+[![Slack](https://img.shields.io/badge/chat-%20%20-brightgreen.svg)](http://nirmankarta.herokuapp.com)
+
 Python package for scanning and advertising [Eddystone-URL and Eddystone-UID](https://github.com/google/eddystone/tree/master/eddystone-url/implementations/PyBeacon).
 
-Note: Please create you pull requests against dev branch.
+Note: Please create your pull requests against dev branch.
+
+# Contents
+
+  - [PyBeacon](#pybeacon)
+  - [Contents](#contents)
+    - [Requirements](#requirements)
+    - [Installation](#installation)
+    - [Upgrade](#upgrade)
+    - [Usage](#usage)
+    - [Projects using PyBeacon](#projects-using-pybeacon)
+
+***
 
 ## Requirements
 
@@ -31,3 +48,9 @@ Note: Please create you pull requests against dev branch.
 		-o, --one             Scan one URL only.
 		-v, --version         Version of PyBeacon.
 		-V, --Verbose         Print lots of debug output.
+
+## Projects using PyBeacon
+* [PyBTSteward](https://github.com/wolfspyre/PyBTSteward)
+* [pikiosk](https://github.com/chriso0710/pikiosk)
+
+Please add your projects here if you are using PyBeacon's code so that similar projects can be accessed easily.
