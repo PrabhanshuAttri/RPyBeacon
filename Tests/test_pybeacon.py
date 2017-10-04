@@ -59,12 +59,12 @@ def testDecodeUrlSuccess():
 
 def testEncodeUidSuccess():
     uidToEncode = "EDD1EBEAC04E5DEFA0170BDB87539B67"
-    ret = []
-    assert encodeUid(uidToEncode) == [
-                                      237, 209, 235, 234, 192, 78, 93, 239,
-                                      160, 23, 11, 219, 135, 83, 155, 103,
-                                      0, 0
-                                      ]
+    ret = [
+            237, 209, 235, 234, 192, 78, 93, 239,
+            160, 23, 11, 219, 135, 83, 155, 103,
+            0, 0
+        ]
+    assert encodeUid(uidToEncode) == ret
 
 def testEncodeUidRaisesException():
     uidToEncode = "test.com"
