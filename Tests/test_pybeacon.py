@@ -1,4 +1,9 @@
+import os
+import sys
+
 import pytest
+# Following is a hacky way to ensure relative imports work proplerly.
+sys.path.append(os.path.join(os.path.dirname(__file__), '..',))
 from PyBeacon.PyBeacon import *
 
 
@@ -52,10 +57,6 @@ def testDecodeUrlSuccess():
     ]
     assert decodeUrl(dataToDecode) == url
 
-'''
-ToDo: Fix the following error
-NameError: global name 'encodeUid' is not defined
-
 
 def testEncodeUidSuccess():
     uidToEncode = "EDD1EBEAC04E5DEFA0170BDB87539B67"
@@ -67,4 +68,3 @@ def testEncodeUidRaisesException():
     with pytest.raises(ValueError) as excinfo:
         encodeUid(uidToEncode)
     assert 'Invalid uid. Please specify a valid 16-byte (e.g 32 hex digits) hex string' in str(excinfo.value)
-'''
