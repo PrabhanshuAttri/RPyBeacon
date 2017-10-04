@@ -53,6 +53,10 @@ def testDecodeUrlSuccess():
     assert decodeUrl(dataToDecode) == url
 
 '''
+ToDo: Fix the following error
+NameError: global name 'encodeUid' is not defined
+
+
 def testEncodeUidSuccess():
     uidToEncode = "EDD1EBEAC04E5DEFA0170BDB87539B67"
     ret = []
