@@ -6,6 +6,7 @@
 [![PyPI](https://img.shields.io/pypi/v/PyBeacon.svg)](https://pypi.python.org/pypi/PyBeacon)
 [![PyPI](https://img.shields.io/pypi/l/PyBeacon.svg)](https://github.com/nirmankarta/PyBeacon/blob/master/LICENSE)
 [![Contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg)](https://github.com/nirmankarta/PyBeacon/graphs/contributors)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/nirmankarta/PyBeacon)
 
 Python package for scanning and advertising [Eddystone-URL and Eddystone-UID](https://github.com/google/eddystone/tree/master/eddystone-url/implementations/PyBeacon).
 
