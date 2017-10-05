@@ -5,6 +5,10 @@
 [![Slack](https://img.shields.io/badge/Slack%20channel-%20%20-blue.svg)](http://nirmankarta.herokuapp.com)
 [![PyPI](https://img.shields.io/pypi/v/PyBeacon.svg)](https://pypi.python.org/pypi/PyBeacon)
 [![PyPI](https://img.shields.io/pypi/l/PyBeacon.svg)](https://github.com/nirmankarta/PyBeacon/blob/master/LICENSE)
+<br>
+[![Contributors](https://img.shields.io/github/contributors/nirmankarta/PyBeacon.svg)](https://github.com/nirmankarta/PyBeacon/graphs/contributors)
+[![Forks](https://img.shields.io/github/forks/nirmankarta/PyBeacon.svg?style=social&label=Forks)](https://github.com/nirmankarta/PyBeacon/network)
+[![Stars](https://img.shields.io/github/stars/nirmankarta/PyBeacon.svg?style=social&label=Stars)](https://github.com/nirmankarta/PyBeacon/stargazers)
 
 Python package for scanning and advertising [Eddystone-URL and Eddystone-UID](https://github.com/google/eddystone/tree/master/eddystone-url/implementations/PyBeacon).
 
