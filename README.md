@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/nirmankarta/PyBeacon.svg?branch=master)](https://travis-ci.org/nirmankarta/PyBeacon)
 [![Python: 3](https://img.shields.io/badge/python-3-brightgreen.svg)](https://docs.python.org/3/)
 [![Python: 2](https://img.shields.io/badge/python-2-lightgrey.svg)](https://docs.python.org/2/)
+[![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg)]()
 [![Slack](https://img.shields.io/badge/Slack%20channel-%20%20-blue.svg)](http://nirmankarta.herokuapp.com)
 [![PyPI](https://img.shields.io/pypi/v/PyBeacon.svg)](https://pypi.python.org/pypi/PyBeacon)
 [![PyPI](https://img.shields.io/pypi/l/PyBeacon.svg)](https://github.com/nirmankarta/PyBeacon/blob/master/LICENSE)
