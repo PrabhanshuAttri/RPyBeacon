@@ -17,3 +17,12 @@ before_install:
 install: "python setup.py install"
 
 script: py.test
+
+deploy:
+  provider: pypi
+  distributions: "sdist bdist_wheel"
+  user: nirmankarta
+  password: $PYPI_PASSWORD
+  on:
+    tags: true
+    repo: nirmankarta/PyBeacon
