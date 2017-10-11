@@ -19,6 +19,8 @@ if (sys.version_info > (3, 0)):
 else:
     DEVNULL = open(os.devnull, 'wb')
 
+verbose = False
+
 # The default url
 defaultUrl = "https://goo.gl/SkcDTN"
 
@@ -46,31 +48,32 @@ extensions = [
         ".com", ".org", ".edu", ".net", ".info", ".biz", ".gov",
         ]
 
-parser = argparse.ArgumentParser(prog=application_name, description=__doc__)
-group = parser.add_mutually_exclusive_group()
+def parseArgs(argv):
+    parser = argparse.ArgumentParser(prog=application_name, description=__doc__)
+    group = parser.add_mutually_exclusive_group()
 
-group.add_argument("-u", "--url", nargs='?', const=defaultUrl, type=str,
-                   default=defaultUrl, help='URL to advertise.')
-group.add_argument("-i", "--uid", nargs='?',  type=str,
-                   const=defaultUid, help='UID to advertise.')
-parser.add_argument('-s', '--scan', action='store_true',
-                    help='Scan for URLs.')
-parser.add_argument('-t', '--terminate', action='store_true',
-                    help='Stop advertising URL.')
-parser.add_argument('-o', '--one', action='store_true',
-                    help='Scan one URL only.')
-parser.add_argument("-v", "--version", action='store_true',
-                    help='Version of ' + application_name + '.')
-parser.add_argument("-V", "--Verbose", action='store_true',
-                    help='Print lots of debug output.')
+    group.add_argument("-u", "--url", nargs='?', const=defaultUrl, type=str,
+                       default=defaultUrl, help='URL to advertise.')
+    group.add_argument("-i", "--uid", nargs='?',  type=str,
+                       const=defaultUid, help='UID to advertise.')
+    parser.add_argument('-s', '--scan', action='store_true',
+                        help='Scan for URLs.')
+    parser.add_argument('-t', '--terminate', action='store_true',
+                        help='Stop advertising URL.')
+    parser.add_argument('-o', '--one', action='store_true',
+                        help='Scan one URL only.')
+    parser.add_argument("-v", "--version", action='store_true',
+                        help='Version of ' + application_name + '.')
+    parser.add_argument("-V", "--Verbose", action='store_true',
+                        help='Print lots of debug output.')
 
-args = parser.parse_args()
+    return parser.parse_args(argv)
 
 foundPackets = set()
 
 def verboseOutput(text=""):
     """Verbose output logger."""
-    if args.Verbose:
+    if verbose:
         sys.stderr.write(text + "\n")
 
 def encodeurl(url):
@@ -230,11 +233,11 @@ def onUidFound(bytearray):
     instance = ("".join(format(x, '02x') for x in bytearray[10:16]))
     print("Namspace: {}\nInstance: {}\n".format(namespace, instance))
 
-def onPacketFound(packet):
+def onPacketFound(packet, one=False):
     """Called by the scan function for each beacon packets found."""
     data = bytearray.fromhex(packet)
 
-    if args.one:
+    if one:
         tmp = packet[:-3]
         if tmp in foundPackets:
             return
@@ -267,7 +270,7 @@ def onPacketFound(packet):
     verboseOutput(packet)
     verboseOutput()
 
-def scan(duration=None):
+def scan(duration=None, one=False):
     """
     Scan for beacons.
 
@@ -292,11 +295,11 @@ def scan(duration=None):
             line = line.decode()
             if line.startswith("> "):
                 if packet:
-                    onPacketFound(packet)
+                    onPacketFound(packet, one)
                 packet = line[2:].strip()
             elif line.startswith("< "):
                 if packet:
-                    onPacketFound(packet)
+                    onPacketFound(packet, one)
                 packet = None
             else:
                 if packet:
@@ -357,6 +360,10 @@ def showVersion():
 
 def main():
     """Main function."""
+    global verbose
+    args = parseArgs(sys.argv)
+    verbose = args.Verbose
+
     if args.version:
         showVersion()
     else:
@@ -364,13 +371,13 @@ def main():
         if args.terminate:
             stopAdvertising()
         elif args.one:
-            scan(3)
+            scan(3, args.one)
         elif args.scan:
-            scan()
+            scan(one=args.one)
         elif args.uid:
             advertise(args.uid, Eddystone.uid)
         else:
-            advertise(args.url)
+            advertise(args.url, Eddystone.url)
 
 if __name__ == "__main__":
     main()
