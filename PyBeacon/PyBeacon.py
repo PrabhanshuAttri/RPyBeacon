@@ -40,7 +40,7 @@ class Eddystone(Enum):
     url = 0x10
     tlm = 0x20
 
-
+# Url Extensions
 extensions = [
         ".com/", ".org/", ".edu/", ".net/", ".info/", ".biz/", ".gov/",
         ".com", ".org", ".edu", ".net", ".info", ".biz", ".gov",
