@@ -78,6 +78,7 @@ def encodeurl(url):
     i = 0
     data = []
 
+	"""Add useful scheme into data array, such as 'https://'""" 
     for s in range(len(schemes)):
         scheme = schemes[s]
         if url.startswith(scheme):
@@ -87,6 +88,7 @@ def encodeurl(url):
     else:
         raise Exception("Invalid url scheme")
 
+    """Add useful extension into data aray, such as '.com/'"""
     while i < len(url):
         if url[i] == '.':
             for e in range(len(extensions)):
@@ -96,6 +98,7 @@ def encodeurl(url):
                     i += len(expansion)
                     break
             else:
+                """0x2E is '.'"""
                 data.append(0x2E)
                 i += 1
         else:
