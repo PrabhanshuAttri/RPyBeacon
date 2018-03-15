@@ -78,7 +78,7 @@ def encodeurl(url):
     i = 0
     data = []
 
-	"""Add useful scheme into data array, such as 'https://'""" 
+    """Add useful scheme into data array, such as 'https://'""" 
     for s in range(len(schemes)):
         scheme = schemes[s]
         if url.startswith(scheme):
