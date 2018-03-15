@@ -84,6 +84,7 @@ def encodeurl(url):
             data.append(s)
             i += len(scheme)
             break
+        """if never match to if, then throw exception."""
     else:
         raise Exception("Invalid url scheme")
 
@@ -111,6 +112,7 @@ def encodeUid(uid):
     ret = []
     for i in range(0, len(uid), 2):
         ret.append(int(uid[i:i+2], 16))
+    """Python's final character"""
     ret.append(0x00)
     ret.append(0x00)
     return ret
@@ -119,6 +121,7 @@ def uidIsValid(uid):
     """UID Validation."""
     if len(uid) == 32:
         try:
+            """Must not be alpha except ABCDEF"""
             int(uid, 16)
             return True
         except ValueError:
@@ -170,6 +173,7 @@ def decodeUrl(encodedUrl):
     """
     decodedUrl = schemes[encodedUrl[0]]
     for c in encodedUrl[1:]:
+        """Unprintable character"""
         if c <= 0x20:
             decodedUrl += extensions[c]
         else:
