@@ -85,8 +85,8 @@ def encodeurl(url):
             data.append(s)
             i += len(scheme)
             break
-    else:
-        raise Exception("Invalid url scheme")
+        else:
+            raise Exception("Invalid url scheme")
 
     """Add useful extension into data aray, such as '.com/'"""
     while i < len(url):
@@ -97,10 +97,10 @@ def encodeurl(url):
                     data.append(e)
                     i += len(expansion)
                     break
-            else:
-                """0x2E is '.'"""
-                data.append(0x2E)
-                i += 1
+                else:
+                    """0x2E is '.'"""
+                    data.append(0x2E)
+                    i += 1
         else:
             data.append(ord(url[i]))
             i += 1
