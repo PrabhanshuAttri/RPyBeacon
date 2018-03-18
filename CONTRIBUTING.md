@@ -37,8 +37,14 @@ You can contribute in many ways:
   ```shell
   $ py.test
   ```
+6. If execute py.test and always collect 0 items, then you can try to run
 
-6. Commit your changes and push your branch to GitHub::
+  ```shell
+  $ sudo pip install PyBeacon
+  ```
+  if your install success and execute just like you expect, then you can suggest that you have already pass the test.
+
+7. Commit your changes and push your branch to GitHub::
 
   ```shell
   $ git add .
@@ -46,7 +52,7 @@ You can contribute in many ways:
   $ git push origin name-of-your-bugfix-or-feature
   ```
 
-7. Submit a pull request through the [GitHub website](https://github.com/nirmankarta/PyBeacon).
+8. Submit a pull request through the [GitHub website](https://github.com/nirmankarta/PyBeacon).
 
 ## Types of Contributions
 
