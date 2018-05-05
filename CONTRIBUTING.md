@@ -51,9 +51,6 @@ You can contribute in many ways:
   $ git commit -m "Your detailed description of your changes."
   $ git push origin name-of-your-bugfix-or-feature
   ```
-
-8. Submit a pull request through the [GitHub website](https://github.com/nirmankarta/PyBeacon).
-
 ## Types of Contributions
 
 You can contribute in many ways:
