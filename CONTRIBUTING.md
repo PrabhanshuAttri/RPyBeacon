@@ -52,7 +52,7 @@ You can contribute in many ways:
   $ git push origin name-of-your-bugfix-or-feature
   ```
 
-7. Submit a pull request through the [GitHub website](https://github.com/forksociety/PyBeacon).
+8. Submit a pull request through the [GitHub website](https://github.com/forksociety/PyBeacon).
 
 ## How to contribute?
 * Follow the Getting Started guidelines to get a headstart.
