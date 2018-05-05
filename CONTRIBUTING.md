@@ -51,13 +51,14 @@ You can contribute in many ways:
   $ git commit -m "Your detailed description of your changes."
   $ git push origin name-of-your-bugfix-or-feature
   ```
-## Types of Contributions
+7. Submit a pull request through the [GitHub website](https://github.com/forksociety/PyBeacon).
 
-You can contribute in many ways:
+## How to contribute?
+* Follow the Getting Started guidelines to get a headstart.
+* Create an issue first and then get it approved before creating a PR to allow for better management.
+* Make sure to make PRs against the `dev` branch.
+* No trivial edits, ie. simply rearranging topics will not be accepted.
 
-### Report Bugs
-
-Report bugs at https://github.com/nirmankarta/PyBeacon/issues.
 
 If you are reporting a bug, please include:
 
