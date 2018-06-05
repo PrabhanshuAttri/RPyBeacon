@@ -73,7 +73,7 @@ If you are reporting a bug, please include:
 
 ### Fix Bugs
 
-Look through the [GitHub issues](https://github.com/nirmankarta/PyBeacon/issues) for bugs. Anything tagged with "bug"
+Look through the [GitHub issues](https://github.com/forksociety/PyBeacon/issues) for bugs. Anything tagged with "bug"
 and "help wanted" is open to whoever wants to implement it.
 
 ### Implement Features
@@ -89,7 +89,7 @@ articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/nirmankarta/PyBeacon/issues.
+The best way to send feedback is to file an issue at https://github.com/forksociety/PyBeacon/issues.
 
 If you are proposing a feature:
 
