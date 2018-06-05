@@ -121,7 +121,7 @@ def uidIsValid(uid):
     """UID Validation."""
     if len(uid) == 32:
         try:
-            """Must not be alpha except ABCDEF"""
+            """UID characters must belong to base 16"""
             int(uid, 16)
             return True
         except ValueError:
@@ -173,7 +173,6 @@ def decodeUrl(encodedUrl):
     """
     decodedUrl = schemes[encodedUrl[0]]
     for c in encodedUrl[1:]:
-        """Unprintable character"""
         if c <= 0x20:
             decodedUrl += extensions[c]
         else:
