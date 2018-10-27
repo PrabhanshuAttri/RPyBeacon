@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
-import re
 import os
-import signal
 import subprocess
 import sys
 import time
 import argparse
 from . import __version__
-from pprint import pprint
 from enum import Enum
 
 application_name = 'PyBeacon'
@@ -212,7 +209,7 @@ def resolveUrl(url):
         else:
                 return url
 
-    except:
+    except Exception:
         return url
 
 def onUrlFound(url):
