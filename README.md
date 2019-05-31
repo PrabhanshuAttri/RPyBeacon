@@ -18,15 +18,15 @@ Python package for scanning and advertising [Eddystone-URL and Eddystone-UID](ht
 * Bluez
     * sudo apt-get install bluez bluez-hcidump
 * Pip Packages
-    * pip install enum34
+    * pip3 install enum34
 
 ## Installation
 
-    sudo pip install PyBeacon
+    sudo pip3 install PyBeacon
 
 ## Upgrade
 
-    sudo pip install PyBeacon --upgrade
+    sudo pip3 install PyBeacon --upgrade
 
 ## Usage
 	PyBeacon [-h] [-u [URL]] [-s] [-t] [-o] [-v] [-V]
